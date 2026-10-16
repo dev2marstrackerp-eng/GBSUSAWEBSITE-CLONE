@@ -41,6 +41,7 @@ const paths = {
   globe: "M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20ZM2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20",
   warehouse: "M2 21V8l10-5 10 5v13M6 21v-8h12v8M6 17h12",
   layers: "m12 2 10 5-10 5L2 7zM2 17l10 5 10-5M2 12l10 5 10-5",
+  bag: "M5 7h14l-1 14H6zM9 10V6a3 3 0 0 1 6 0v4",
 } as const;
 
 export type IconName = keyof typeof paths;

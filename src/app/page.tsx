@@ -6,6 +6,7 @@ import { Icon, type IconName } from "@/components/Icon";
 import { JsonLd } from "@/components/JsonLd";
 import { Reveal } from "@/components/Reveal";
 import { ProductMockup } from "@/components/ProductMockup";
+import { WebShowcase } from "@/components/WebShowcase";
 import { Button, Container, CtaBanner, DemoButton, IconBadge, SectionHeading } from "@/components/ui";
 import { faqs } from "@/content/faqs";
 import { industries } from "@/content/industries";
@@ -144,6 +145,12 @@ export default function Home() {
         </Container>
       </section>
 
+      {/* Mobile apps showcase */}
+      <AppShowcase />
+
+      {/* Web apps showcase */}
+      <WebShowcase />
+
       {/* Modules */}
       <section className="bg-slate-50 py-20 sm:py-24" id="platform">
         <Container>
@@ -195,9 +202,6 @@ export default function Home() {
           </div>
         </Container>
       </section>
-
-      {/* Mobile apps showcase */}
-      <AppShowcase />
 
       {/* Spotlights */}
       <section className="bg-slate-50 py-20 sm:py-24">

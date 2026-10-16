@@ -311,6 +311,110 @@ html.js [data-reveal]:not(.is-visible) .anim-area {
   animation-play-state: paused;
 }
 
+@keyframes app-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.app-spin {
+  animation: app-spin 14s linear infinite;
+}
+@keyframes app-grow-down {
+  from {
+    transform: scaleY(0);
+  }
+}
+.app-grow-down {
+  transform-origin: top;
+  animation: app-grow-down 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(var(--i, 0) * 70ms + 400ms);
+}
+@keyframes app-drop {
+  0%,
+  8% {
+    opacity: 0;
+    transform: translateY(-14px) scale(0.96);
+  }
+  16%,
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+.app-drop {
+  animation: app-drop 5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+@keyframes app-slide {
+  0%,
+  35% {
+    transform: none;
+  }
+  50%,
+  85% {
+    transform: translateX(6px);
+    box-shadow: 0 10px 24px -8px rgb(15 23 42 / 0.25);
+  }
+  100% {
+    transform: none;
+  }
+}
+.app-slide {
+  animation: app-slide 4s ease-in-out infinite;
+}
+@keyframes web-in {
+  from {
+    opacity: 0;
+    translate: 0 28px;
+  }
+}
+.web-in {
+  animation: web-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes web-view {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+.web-view {
+  animation: web-view 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes web-click {
+  from {
+    transform: scale(0.2);
+    opacity: 1;
+  }
+  to {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+.web-click {
+  opacity: 0;
+  animation: web-click 0.6s ease-out 0.7s both;
+}
+
+@keyframes app-paid {
+  0%,
+  45% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  52%,
+  88% {
+    opacity: 1;
+    transform: none;
+  }
+  95%,
+  100% {
+    opacity: 0;
+  }
+}
+.app-paid {
+  opacity: 0;
+  animation: app-paid 5s ease-out 0.8s infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
