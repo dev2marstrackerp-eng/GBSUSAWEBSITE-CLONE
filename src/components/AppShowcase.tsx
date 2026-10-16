@@ -381,9 +381,9 @@ function FoodScreen() {
         </span>
       </div>
       <div data-spot="coupons" className="app-pop relative mx-4 mt-3 overflow-hidden rounded-2xl bg-gradient-to-r from-rose-500 to-orange-400 p-3 text-white" style={stagger(1)}>
-        <p className="text-[9px] font-semibold uppercase tracking-wider text-rose-100">Zahra Sweet Rolls</p>
+        <p className="text-[9px] font-semibold uppercase tracking-wider text-rose-100">Tech23 Eats</p>
         <p className="text-sm font-extrabold leading-tight">20% off your first box</p>
-        <span className="mt-1.5 inline-block rounded-md border border-dashed border-white/70 px-1.5 py-0.5 text-[9px] font-bold">ZAHRA20</span>
+        <span className="mt-1.5 inline-block rounded-md border border-dashed border-white/70 px-1.5 py-0.5 text-[9px] font-bold">SWEET20</span>
         <Roll glaze className="app-spin absolute -right-3 -top-2 h-20 w-20" />
       </div>
       <div className="mx-4 mt-3 flex gap-1.5 text-[9px] font-semibold">
@@ -408,7 +408,7 @@ function FoodScreen() {
       </div>
       <div data-spot="track" className="app-pop mx-4 mt-3 rounded-xl bg-white p-2.5 shadow-sm" style={stagger(4)}>
         <div className="flex items-center justify-between text-[10px]">
-          <span className="font-bold text-slate-900">Order #ZS-1042</span>
+          <span className="font-bold text-slate-900">Order #OR-1042</span>
           <span className="font-semibold text-emerald-600">Rider 6 min away</span>
         </div>
         <div className="relative mt-2 h-1.5 rounded-full bg-slate-100">
@@ -564,7 +564,7 @@ const apps: App[] = [
   {
     id: "food",
     icon: "bag",
-    name: "Zahra Sweet Rolls",
+    name: "Tech23 Eats",
     category: "Food delivery app",
     tagline: "Fresh rolls ordered, baked and tracked to the door",
     text: "Customers browse the menu, apply coupons, check out in seconds and follow their rider live, while the bakery sees every order the moment it lands.",

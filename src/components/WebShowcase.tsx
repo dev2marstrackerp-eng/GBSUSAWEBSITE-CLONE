@@ -674,10 +674,10 @@ function TransportInvoice() {
 
 function FoodOrders() {
   const cols: { t: string; tone: Tone; cards: { id: string; who: string; items: string; mins: number; total: string }[] }[] = [
-    { t: "New", tone: "red", cards: [{ id: "ZS-1047", who: "Aisha M.", items: "6 × Classic Cinnamon", mins: 1, total: "$21.00" }, { id: "ZS-1046", who: "Brian K.", items: "Party box (12)", mins: 3, total: "$38.00" }] },
-    { t: "Baking", tone: "amber", cards: [{ id: "ZS-1045", who: "Wanjiru N.", items: "2 × Choco Swirl, 2 × Classic", mins: 9, total: "$15.40" }, { id: "ZS-1044", who: "Tom R.", items: "4 × Pecan Caramel", mins: 12, total: "$18.80" }] },
-    { t: "Out for delivery", tone: "blue", cards: [{ id: "ZS-1042", who: "Ahmed K.", items: "2 × Classic, 1 × Choco", mins: 6, total: "$7.70" }, { id: "ZS-1041", who: "Lina S.", items: "Brunch box (6)", mins: 14, total: "$22.00" }] },
-    { t: "Delivered", tone: "green", cards: [{ id: "ZS-1039", who: "Mark O.", items: "3 × Classic", mins: 0, total: "$10.50" }] },
+    { t: "New", tone: "red", cards: [{ id: "OR-1047", who: "Aisha M.", items: "6 × Classic Cinnamon", mins: 1, total: "$21.00" }, { id: "OR-1046", who: "Brian K.", items: "Party box (12)", mins: 3, total: "$38.00" }] },
+    { t: "Baking", tone: "amber", cards: [{ id: "OR-1045", who: "Wanjiru N.", items: "2 × Choco Swirl, 2 × Classic", mins: 9, total: "$15.40" }, { id: "OR-1044", who: "Tom R.", items: "4 × Pecan Caramel", mins: 12, total: "$18.80" }] },
+    { t: "Out for delivery", tone: "blue", cards: [{ id: "OR-1042", who: "Ahmed K.", items: "2 × Classic, 1 × Choco", mins: 6, total: "$7.70" }, { id: "OR-1041", who: "Lina S.", items: "Brunch box (6)", mins: 14, total: "$22.00" }] },
+    { t: "Delivered", tone: "green", cards: [{ id: "OR-1039", who: "Mark O.", items: "3 × Classic", mins: 0, total: "$10.50" }] },
   ];
   return (
     <div className="grid grid-cols-4 gap-3">
@@ -777,9 +777,9 @@ const F3 = "M300 200 C330 140 400 110 470 70";
 
 function FoodDeliveryMap() {
   const riders: [string, string, string, Tone, string][] = [
-    ["Kevin O.", "ZS-1042 · Westlands", "6 min", "blue", "On the way"],
-    ["Mary W.", "ZS-1041 · Kilimani", "14 min", "blue", "On the way"],
-    ["Sam T.", "ZS-1045 · Parklands", "At bakery", "amber", "Waiting"],
+    ["Kevin O.", "OR-1042 · Westlands", "6 min", "blue", "On the way"],
+    ["Mary W.", "OR-1041 · Kilimani", "14 min", "blue", "On the way"],
+    ["Sam T.", "OR-1045 · Parklands", "At bakery", "amber", "Waiting"],
     ["Joy A.", "Available", "-", "green", "Idle"],
   ];
   return (
@@ -798,7 +798,7 @@ function FoodDeliveryMap() {
           ))}
           <rect x="284" y="184" width="32" height="32" rx="9" fill="#0f172a" />
         </svg>
-        <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10px] font-bold text-white">ZS</span>
+        <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[10px] font-bold text-white">HQ</span>
         <div className="absolute left-4 top-4 rounded-xl bg-white/95 p-3 shadow-lg">
           <p className="text-[11px] font-semibold text-slate-500">Delivery zone · 5 km</p>
           <div className="mt-1 flex gap-4 text-xs"><span><b className="text-lg text-slate-900">4</b> riders</span><span><b className="text-lg text-rose-600">3</b> on the way</span></div>
@@ -998,9 +998,9 @@ const webApps: WebApp[] = [
   {
     id: "food",
     icon: "bag",
-    name: "Zahra Sweet Rolls",
+    name: "Tech23 Eats",
     category: "Food delivery admin",
-    host: "admin.zahrasweetrolls.com",
+    host: "eats.tech23.app",
     tagline: "Orders, menu, riders and sales for a delivery bakery",
     text: "The kitchen accepts and bakes orders on a live board, the team manages the menu and stock, riders are assigned and tracked, and the owner sees sales by the hour.",
     accent: "from-rose-500 to-orange-500",
@@ -1271,18 +1271,18 @@ export function WebShowcase() {
               role="tab"
               aria-selected={i === appIdx}
               onClick={() => pickApp(i)}
-              className={`group relative flex w-[230px] shrink-0 snap-center items-center gap-3 overflow-hidden rounded-2xl border p-4 text-left transition lg:w-auto ${
+              className={`group relative flex w-[190px] shrink-0 snap-center items-center gap-2.5 overflow-hidden rounded-xl border px-3 py-2.5 text-left transition lg:w-auto ${
                 i === appIdx ? "border-brand-300 bg-white shadow-xl shadow-brand-900/10" : "border-slate-200 bg-white/60 hover:border-slate-300 hover:bg-white"
               }`}
             >
-              <span className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${a.accent} text-white shadow-md transition group-hover:scale-105`}>
-                <Icon name={a.icon} className="h-5 w-5" />
+              <span className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br ${a.accent} text-white shadow-md transition group-hover:scale-105`}>
+                <Icon name={a.icon} className="h-4 w-4" />
               </span>
-              <span>
-                <span className="block text-xs font-semibold uppercase tracking-wider text-slate-500">{a.category}</span>
-                <span className="block font-bold text-slate-900">{a.name}</span>
+              <span className="min-w-0">
+                <span className="block truncate text-[10px] font-semibold uppercase tracking-wider text-slate-500">{a.category}</span>
+                <span className="block truncate text-sm font-bold text-slate-900">{a.name}</span>
               </span>
-              {i === appIdx && <span className={`absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r ${a.accent}`} />}
+              {i === appIdx && <span className={`absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r ${a.accent}`} />}
             </button>
           ))}
         </div>
