@@ -22,6 +22,13 @@
     scroll-behavior: smooth;
   }
 
+  /* Slide-in reveals start off-canvas; clip so they never widen the page on mobile.
+     `clip` (unlike `hidden`) keeps the sticky header working. */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
   body {
     @apply bg-white text-slate-700 antialiased;
   }
