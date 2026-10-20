@@ -10,14 +10,15 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.tech23tms.com",
   demoUrl: "https://register.tech23.net/",
   loginUrl: "https://register.tech23.net/login",
-  company: "Genius Business Systems (GBS)",
-  // TODO: replace with the US sales line / email once assigned.
-  email: "sales@gbsafrica.net",
-  phone: "+254 769 317332",
-  phoneLabel: "Sales (global HQ)",
-  hq: "Nairobi, Kenya",
+  company: "GBS USA",
+  // TODO: set the US sales email, phone and office address once assigned.
+  // Empty values are hidden across the site.
+  email: "",
+  phone: "",
+  phoneLabel: "Sales",
+  hq: "",
   implementations: "50+",
-} as const;
+};
 
 export const mainNav = [
   { label: "Solutions", href: "/solutions" },

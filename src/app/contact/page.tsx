@@ -23,7 +23,7 @@ export default function ContactPage() {
               { icon: "phone" as const, label: site.phoneLabel, value: site.phone, href: `tel:${site.phone.replace(/\s/g, "")}` },
               { icon: "building" as const, label: "Headquarters", value: site.hq },
               { icon: "globe" as const, label: "Customer login", value: "register.tech23.net", href: site.loginUrl },
-            ].map((c, i) => (
+            ].filter((c) => c.value).map((c, i) => (
               <Reveal key={c.label} delay={i * 100} from="left" className="flex gap-4 rounded-2xl border border-slate-200 p-5">
                 <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-brand-50 text-brand-600"><Icon name={c.icon} className="h-5 w-5" /></span>
                 <div className="min-w-0">

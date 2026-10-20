@@ -68,7 +68,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               "@type": "Organization",
               name: site.company,
               url: site.url,
-              email: site.email,
+              ...(site.email && { email: site.email }),
               brand: { "@type": "Brand", name: site.name },
             },
             {

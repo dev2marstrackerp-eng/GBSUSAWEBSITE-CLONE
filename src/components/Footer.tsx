@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Icon } from "@/components/Icon";
 import { Logo } from "@/components/Logo";
@@ -18,9 +17,7 @@ export function Footer() {
             </p>
             <div className="mt-6 flex items-center gap-3">
               <span className="text-xs text-brand-300">A product of</span>
-              <span className="rounded-md bg-white px-2 py-1">
-                <Image src="/images/source/gbs-logo.png" alt="Genius Business Systems (GBS)" width={110} height={39} className="h-7 w-auto" />
-              </span>
+              <span className="text-sm font-extrabold tracking-wide text-white">{site.company}</span>
             </div>
           </div>
 
@@ -49,8 +46,9 @@ export function Footer() {
           <div className="lg:col-span-2">
             <p className="text-sm font-semibold text-white">Contact</p>
             <ul className="mt-4 space-y-3 text-sm">
-              <li className="flex gap-2"><Icon name="mail" className="mt-0.5 h-4 w-4 shrink-0 text-brand-300" /><a href={`mailto:${site.email}`} className="break-all hover:text-white">{site.email}</a></li>
-              <li className="flex gap-2"><Icon name="phone" className="mt-0.5 h-4 w-4 shrink-0 text-brand-300" /><a href={`tel:${site.phone.replace(/\s/g, "")}`} className="hover:text-white">{site.phone}</a></li>
+              {site.email && <li className="flex gap-2"><Icon name="mail" className="mt-0.5 h-4 w-4 shrink-0 text-brand-300" /><a href={`mailto:${site.email}`} className="break-all hover:text-white">{site.email}</a></li>}
+              {site.phone && <li className="flex gap-2"><Icon name="phone" className="mt-0.5 h-4 w-4 shrink-0 text-brand-300" /><a href={`tel:${site.phone.replace(/\s/g, "")}`} className="hover:text-white">{site.phone}</a></li>}
+              <li><Link href="/contact" className="hover:text-white">Send us a message</Link></li>
             </ul>
           </div>
         </div>

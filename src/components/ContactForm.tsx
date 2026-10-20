@@ -89,8 +89,13 @@ export function ContactForm({ demo = false }: { demo?: boolean }) {
       </button>
       {sent && (
         <p className="text-sm text-slate-600" role="status">
-          Your email app should open with the details filled in. If it doesn&apos;t, email us at{" "}
-          <a href={`mailto:${site.email}`} className="font-semibold text-brand-700">{site.email}</a>.
+          Your email app should open with the details filled in.
+          {site.email && (
+            <>
+              {" "}If it doesn&apos;t, email us at{" "}
+              <a href={`mailto:${site.email}`} className="font-semibold text-brand-700">{site.email}</a>.
+            </>
+          )}
         </p>
       )}
     </form>

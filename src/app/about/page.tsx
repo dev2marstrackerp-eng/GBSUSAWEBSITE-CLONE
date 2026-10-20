@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "About Tech23",
   description:
-    "Tech23 TMS is developed by Genius Business Systems (GBS), the team behind the Tech23 ERP platform, with 50+ successful implementations for transport and logistics businesses.",
+    "Tech23 TMS is developed by GBS USA, the team behind the Tech23 ERP platform, with 50+ successful implementations for transport and logistics businesses.",
   alternates: { canonical: "/about" },
 };
 
@@ -35,7 +35,7 @@ export default function AboutPage() {
             <h2 className="text-3xl font-bold tracking-tight">Our story</h2>
             <div className="mt-5 space-y-4 text-lg leading-relaxed text-slate-600">
               <p>
-                Genius Business Systems (GBS) builds enterprise software, ERP solutions and custom systems. Our flagship platform, Tech23 ERP,
+                {site.company} builds enterprise software, ERP solutions and custom systems. Our flagship platform, Tech23 ERP,
                 is a robust, scalable enterprise solution that brings together workflow optimization, team collaboration and real-time insight.
               </p>
               <p>

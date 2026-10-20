@@ -234,72 +234,6 @@ function AnalyticsScreen() {
   );
 }
 
-function HealthCardScreen() {
-  const days = [["Mon", "20"], ["Tue", "21"], ["Wed", "22"], ["Thu", "23"], ["Fri", "24"]];
-  const slots = ["09:00", "10:30", "14:00", "16:30"];
-  return (
-    <div className="relative h-full bg-white">
-      <StatusBar />
-      <div className="app-pop flex items-center justify-between px-5 pt-4" style={stagger(0)}>
-        <div>
-          <p className="text-[10px] text-slate-500">Hello,</p>
-          <p className="text-base font-bold text-slate-900">Ahmed Khan</p>
-        </div>
-        <span data-spot="reminders" className="relative flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-700">
-          <Icon name="bell" className="h-4 w-4" />
-          <span className="absolute right-1 top-1 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white" />
-        </span>
-      </div>
-      <div data-spot="card" className="app-pop relative mx-4 mt-3 overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 p-3.5 text-white" style={stagger(1)}>
-        <span className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-white/10" />
-        <div className="flex items-center justify-between text-[9px] font-semibold uppercase tracking-wider text-emerald-100">
-          <span>Health card</span>
-          <span>HC-004218</span>
-        </div>
-        <div className="mt-2.5 grid grid-cols-3 gap-2">
-          {[["128/82", "BP"], ["74", "Pulse"], ["58", "eGFR"]].map(([v, l]) => (
-            <div key={l}>
-              <p className="text-sm font-extrabold">{v}</p>
-              <p className="text-[9px] text-emerald-100">{l}</p>
-            </div>
-          ))}
-        </div>
-        <p className="mt-2 text-[9px] text-emerald-50">Blood type B+ · Dr. Sarah Lee</p>
-      </div>
-      <div data-spot="schedule" className="app-pop mx-4 mt-3 rounded-2xl border border-slate-100 p-3" style={stagger(2)}>
-        <div className="flex items-center justify-between">
-          <p className="text-[11px] font-bold text-slate-900">Book a visit</p>
-          <span className="text-[9px] font-semibold text-brand-600">October</span>
-        </div>
-        <div className="mt-2 grid grid-cols-5 gap-1.5">
-          {days.map(([d, n], i) => (
-            <span key={n} className={`flex flex-col items-center rounded-lg py-1.5 text-[9px] ${i === 2 ? "app-pick bg-brand-600 text-white" : "bg-slate-50 text-slate-600"}`}>
-              {d}
-              <span className="text-xs font-bold">{n}</span>
-            </span>
-          ))}
-        </div>
-        <div className="mt-2 grid grid-cols-4 gap-1.5">
-          {slots.map((t, i) => (
-            <span key={t} className={`rounded-md py-1 text-center text-[9px] font-semibold ${i === 1 ? "bg-brand-50 text-brand-700 ring-1 ring-brand-500" : i === 3 ? "bg-slate-50 text-slate-300 line-through" : "bg-slate-50 text-slate-600"}`}>{t}</span>
-          ))}
-        </div>
-      </div>
-      <div data-spot="labs" className="mx-4 mt-3 space-y-1.5">
-        {[["Creatinine", "1.3 mg/dL", "text-amber-600"], ["Hemoglobin", "13.8 g/dL", "text-emerald-600"]].map(([l, v, tone], i) => (
-          <div key={l} className="app-pop flex items-center justify-between rounded-xl bg-slate-50 px-3 py-2" style={stagger(i + 3)}>
-            <span className="flex items-center gap-2 text-[10px] font-medium text-slate-700">
-              <Icon name="clipboard" className="h-3.5 w-3.5 text-slate-400" /> {l}
-            </span>
-            <span className={`text-[10px] font-bold ${tone}`}>{v}</span>
-          </div>
-        ))}
-      </div>
-      <BottomNav items={["users", "calendar", "clipboard", "bell"]} />
-    </div>
-  );
-}
-
 function ApprovalsScreen() {
   const queue = [
     { id: "PR-2291", t: "Tires · 6 × steer 295/75", a: "$2,880", by: "Stores" },
@@ -351,145 +285,6 @@ function ApprovalsScreen() {
 }
 
 // Cinnamon-roll swirl drawn with a repeating radial gradient.
-export function Roll({ className = "", glaze = false }: { className?: string; glaze?: boolean }) {
-  return (
-    <span
-      className={`block rounded-full shadow-inner ${className}`}
-      style={{
-        background: `${glaze ? "radial-gradient(circle at 35% 30%, rgb(255 255 255 / 0.55), transparent 45%), " : ""}repeating-radial-gradient(circle at 50% 50%, #f6c98a 0 3px, #b86a2c 3px 5px, #e9a961 5px 7px)`,
-      }}
-    />
-  );
-}
-
-function FoodScreen() {
-  const items = [
-    { n: "Classic Cinnamon", p: "$3.50", glaze: true, tag: "Bestseller" },
-    { n: "Choco Swirl", p: "$4.20", glaze: false, tag: "New" },
-  ];
-  return (
-    <div className="relative h-full bg-[#fff8f3]">
-      <StatusBar />
-      <div className="app-pop flex items-center justify-between px-5 pt-3" style={stagger(0)}>
-        <div data-spot="address">
-          <p className="text-[9px] text-slate-500">Deliver to</p>
-          <p className="text-xs font-bold text-slate-900">Home · Westlands ▾</p>
-        </div>
-        <span data-spot="cart" className="relative flex h-8 w-8 items-center justify-center rounded-full bg-white text-rose-600 shadow-sm">
-          <Icon name="bag" className="h-4 w-4" />
-          <span className="absolute -right-0.5 -top-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-rose-500 text-[8px] font-bold text-white">2</span>
-        </span>
-      </div>
-      <div data-spot="coupons" className="app-pop relative mx-4 mt-3 overflow-hidden rounded-2xl bg-gradient-to-r from-rose-500 to-orange-400 p-3 text-white" style={stagger(1)}>
-        <p className="text-[9px] font-semibold uppercase tracking-wider text-rose-100">Tech23 Eats</p>
-        <p className="text-sm font-extrabold leading-tight">20% off your first box</p>
-        <span className="mt-1.5 inline-block rounded-md border border-dashed border-white/70 px-1.5 py-0.5 text-[9px] font-bold">SWEET20</span>
-        <Roll glaze className="app-spin absolute -right-3 -top-2 h-20 w-20" />
-      </div>
-      <div className="mx-4 mt-3 flex gap-1.5 text-[9px] font-semibold">
-        {["All", "Cinnamon", "Chocolate", "Boxes"].map((c, i) => (
-          <span key={c} className={`rounded-full px-2.5 py-1 ${i === 0 ? "bg-slate-900 text-white" : "bg-white text-slate-600 shadow-sm"}`}>{c}</span>
-        ))}
-      </div>
-      <div data-spot="menu" className="mx-4 mt-3 grid grid-cols-2 gap-2">
-        {items.map((it, i) => (
-          <div key={it.n} className="app-pop rounded-2xl bg-white p-2 shadow-sm" style={stagger(i + 2)}>
-            <div className="relative flex h-16 items-center justify-center rounded-xl bg-orange-50">
-              <Roll glaze={it.glaze} className="h-12 w-12" />
-              <span className="absolute left-1 top-1 rounded-full bg-white px-1.5 text-[8px] font-bold text-rose-600">{it.tag}</span>
-            </div>
-            <p className="mt-1.5 truncate text-[10px] font-bold text-slate-900">{it.n}</p>
-            <div className="mt-0.5 flex items-center justify-between">
-              <span className="text-[10px] font-semibold text-slate-600">{it.p}</span>
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-rose-500 text-xs leading-none text-white">+</span>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div data-spot="track" className="app-pop mx-4 mt-3 rounded-xl bg-white p-2.5 shadow-sm" style={stagger(4)}>
-        <div className="flex items-center justify-between text-[10px]">
-          <span className="font-bold text-slate-900">Order #OR-1042</span>
-          <span className="font-semibold text-emerald-600">Rider 6 min away</span>
-        </div>
-        <div className="relative mt-2 h-1.5 rounded-full bg-slate-100">
-          <div className="app-grow-x absolute inset-y-0 left-0 w-[78%] rounded-full bg-gradient-to-r from-rose-500 to-orange-400" />
-          <span className="app-drive absolute -top-[7px] left-[78%] -ml-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-rose-500 text-white ring-2 ring-white">
-            <Icon name="pin" className="h-2.5 w-2.5" />
-          </span>
-        </div>
-        <div className="mt-1.5 flex justify-between text-[8px] text-slate-400"><span>Baked</span><span>Picked up</span><span>On the way</span><span>Delivered</span></div>
-      </div>
-      <div className="app-pop absolute inset-x-4 bottom-[68px] flex items-center justify-between rounded-xl bg-slate-900 px-3 py-2 text-white shadow-lg" style={stagger(5)}>
-        <span className="text-[10px]"><b>2 items</b> · $7.70</span>
-        <span className="text-[10px] font-bold text-orange-300">View cart →</span>
-      </div>
-      <div className="absolute inset-x-0 bottom-0 flex items-center justify-around border-t border-slate-100 bg-white/95 px-4 pb-5 pt-2.5">
-        {(["star", "eye", "bag", "driver"] as IconName[]).map((n, i) => (
-          <span key={n} className={`flex h-8 w-8 items-center justify-center rounded-xl ${i === 0 ? "bg-rose-500 text-white" : "text-slate-400"}`}>
-            <Icon name={n} className="h-4 w-4" />
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function PaymentsScreen() {
-  return (
-    <div className="relative h-full bg-slate-50">
-      <StatusBar />
-      <div className="app-pop flex items-center justify-between px-5 pt-3" style={stagger(0)}>
-        <div>
-          <p className="text-[10px] text-slate-500">Acme Foods Inc.</p>
-          <p className="text-base font-bold text-slate-900">Payments</p>
-        </div>
-        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-slate-700 shadow-sm"><Icon name="bell" className="h-4 w-4" /></span>
-      </div>
-      <div data-spot="balance" className="app-pop relative mx-4 mt-3 overflow-hidden rounded-2xl bg-gradient-to-br from-violet-600 to-indigo-800 p-3.5 text-white" style={stagger(1)}>
-        <span className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-white/10" />
-        <span className="absolute -bottom-10 right-6 h-20 w-20 rounded-full bg-white/10" />
-        <p className="text-[9px] font-semibold uppercase tracking-wider text-violet-200">Outstanding balance</p>
-        <p className="mt-0.5 text-2xl font-extrabold">$8,460.00</p>
-        <div className="mt-2 flex gap-3 text-[9px] text-violet-100"><span>3 invoices due</span><span>·</span><span>Credit limit $25k</span></div>
-      </div>
-      <div data-spot="pay" className="app-pop relative mx-4 mt-3 rounded-2xl bg-white p-3 shadow-sm" style={stagger(2)}>
-        <div className="flex items-center justify-between text-[10px]">
-          <span className="font-bold text-slate-900">INV-2026-1048</span>
-          <span className="rounded-full bg-amber-50 px-1.5 py-0.5 font-semibold text-amber-700">Due in 3 days</span>
-        </div>
-        <p className="mt-1 text-[10px] text-slate-500">Trip TR-5585 · El Paso → Phoenix</p>
-        <div className="mt-2 flex items-center justify-between">
-          <span className="text-base font-extrabold text-slate-900">$2,760.00</span>
-          <span className="app-pick rounded-lg bg-violet-600 px-3 py-1.5 text-[10px] font-bold text-white">Pay now</span>
-        </div>
-        <div className="app-paid absolute inset-0 flex flex-col items-center justify-center rounded-2xl bg-white">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-500 text-white"><Icon name="check" className="h-5 w-5" /></span>
-          <p className="mt-1 text-[11px] font-bold text-slate-900">Payment received</p>
-          <p className="text-[9px] text-slate-500">Receipt sent by email</p>
-        </div>
-      </div>
-      <div data-spot="methods" className="mx-4 mt-3 grid grid-cols-3 gap-2">
-        {([["dollar", "Card"], ["phone", "Mobile money"], ["building", "Bank"]] as [IconName, string][]).map(([ic, l], i) => (
-          <div key={l} className={`app-pop flex flex-col items-center gap-1 rounded-xl p-2 ${i === 1 ? "bg-violet-50 ring-1 ring-violet-400" : "bg-white shadow-sm"}`} style={stagger(i + 3)}>
-            <Icon name={ic} className={`h-4 w-4 ${i === 1 ? "text-violet-600" : "text-slate-500"}`} />
-            <span className="text-[9px] font-semibold text-slate-700">{l}</span>
-          </div>
-        ))}
-      </div>
-      <div data-spot="history" className="mx-4 mt-3 space-y-1.5">
-        <p className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Recent</p>
-        {[["INV-1039", "Paid · Card •• 4242", "$1,980"], ["INV-1031", "Paid · Mobile money", "$3,140"]].map(([id, s, a], i) => (
-          <div key={id} className="app-pop flex items-center justify-between rounded-xl bg-white px-3 py-2 shadow-sm" style={stagger(i + 6)}>
-            <div><p className="text-[10px] font-bold text-slate-900">{id}</p><p className="text-[9px] text-emerald-600">{s}</p></div>
-            <span className="text-[11px] font-bold text-slate-900">{a}</span>
-          </div>
-        ))}
-      </div>
-      <BottomNav items={["dollar", "invoice", "clock", "driver"]} />
-    </div>
-  );
-}
-
 /* ---------- Apps ---------- */
 
 const apps: App[] = [
@@ -545,57 +340,6 @@ const apps: App[] = [
     Screen: AnalyticsScreen,
   },
   {
-    id: "health",
-    icon: "users",
-    name: "HealthCard",
-    category: "Hospital scheduling",
-    tagline: "A patient's care, scheduled and in one card",
-    text: "Patients carry a digital health card with their vitals and history, book visits in open slots, see lab results the moment the lab posts them and never miss a follow-up.",
-    explore: [
-      { spot: "schedule", icon: "calendar", title: "Appointment scheduling", text: "Pick a day and an open slot with your doctor. Booked slots are blocked automatically." },
-      { spot: "card", icon: "shield", title: "Digital health card", text: "Vitals, blood type, treating doctor and the full visit history on one card." },
-      { spot: "labs", icon: "clipboard", title: "Lab results", text: "Results flow back from the lab and are flagged when they fall outside the normal range." },
-      { spot: "reminders", icon: "bell", title: "Reminders", text: "Visit, medication and lab reminders by push notification, email or WhatsApp." },
-    ],
-    users: "Clinics & patients",
-    accent: "from-emerald-500 to-teal-600",
-    Screen: HealthCardScreen,
-  },
-  {
-    id: "food",
-    icon: "bag",
-    name: "Tech23 Eats",
-    category: "Food delivery app",
-    tagline: "Fresh rolls ordered, baked and tracked to the door",
-    text: "Customers browse the menu, apply coupons, check out in seconds and follow their rider live, while the bakery sees every order the moment it lands.",
-    explore: [
-      { spot: "menu", icon: "star", title: "Menu & quick add", text: "Browse rolls and boxes by category, see bestsellers and add to the cart in one tap." },
-      { spot: "coupons", icon: "dollar", title: "Coupons & offers", text: "Promo codes and first-order offers are applied automatically at checkout." },
-      { spot: "track", icon: "pin", title: "Live order tracking", text: "From baked to picked up to delivered, with the rider's ETA updating live." },
-      { spot: "address", icon: "building", title: "Saved addresses", text: "Home, work and other addresses saved, so repeat orders take seconds." },
-    ],
-    users: "Restaurants & customers",
-    accent: "from-rose-500 to-orange-500",
-    Screen: FoodScreen,
-  },
-  {
-    id: "payments",
-    icon: "dollar",
-    name: "Tech23 Pay",
-    category: "Payments app",
-    tagline: "Get paid faster, from any phone",
-    text: "Customers see what they owe, pay invoices by card, mobile money or bank transfer in a few taps, and get receipts instantly. Every payment reconciles itself in the books.",
-    explore: [
-      { spot: "pay", icon: "check", title: "Pay an invoice", text: "Open an invoice, tap Pay now and it is settled, with a receipt emailed straight away." },
-      { spot: "methods", icon: "phone", title: "Card, mobile money, bank", text: "Customers pay the way they prefer: card, mobile money or bank transfer." },
-      { spot: "balance", icon: "dollar", title: "Balance & credit", text: "Outstanding balance, invoices due and credit limit, always up to date." },
-      { spot: "history", icon: "clock", title: "Payment history", text: "Every payment with its method and receipt, matched to the invoice automatically." },
-    ],
-    users: "Customers & finance",
-    accent: "from-violet-500 to-indigo-600",
-    Screen: PaymentsScreen,
-  },
-  {
     id: "approvals",
     icon: "invoice",
     name: "Tech23 Approvals",
@@ -616,7 +360,7 @@ const apps: App[] = [
 
 const marquee = [
   "Turn-by-turn directions", "Delivery note scanning", "Fuel vouchers", "Breakdown reports", "Digital job cards", "Parts issue",
-  "Preventive maintenance", "Live KPIs", "Profit per truck", "Appointment scheduling", "Lab results", "Food ordering", "Live order tracking", "Mobile payments", "Mobile approvals",
+  "Preventive maintenance", "Live KPIs", "Profit per truck", "Live trip tracking", "Mobile approvals",
 ];
 
 const AUTOPLAY_MS = 6000;
@@ -781,7 +525,7 @@ export function AppShowcase() {
           <p className="text-sm font-semibold uppercase tracking-wider text-brand-300">Our apps</p>
           <h2 className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Apps we&apos;ve built, in your pocket</h2>
           <p className="mt-4 text-lg leading-relaxed text-brand-100">
-            Purpose-built mobile apps for drivers, workshops, managers, clinics, restaurants and finance teams. Tap a feature to see it on the screen.
+            Purpose-built mobile apps for drivers, workshop teams, fleet managers and approvers. Tap a feature to see it on the screen.
           </p>
         </div>
 

@@ -84,7 +84,7 @@ export function CtaBanner({ title = "Ready to take control of your fleet?", text
             <p className="mx-auto mt-4 max-w-2xl text-lg text-brand-100">{text}</p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
               <DemoButton variant="light" />
-              <Button href={`mailto:${site.email}`} variant="outline-light">Talk to Sales</Button>
+              <Button href={site.email ? `mailto:${site.email}` : "/contact"} variant="outline-light">Talk to Sales</Button>
             </div>
           </div>
         </Reveal>
